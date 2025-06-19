@@ -1,0 +1,6 @@
+{
+  "!(*test|*.spec.ts|*.test.ts)*.{js,ts,html,css}": [
+    "npx prettier --write",
+    "ng lint charlies-cat-dashboard --lint-file-patterns"
+  ]
+}
