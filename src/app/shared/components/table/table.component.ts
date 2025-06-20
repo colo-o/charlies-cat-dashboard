@@ -7,6 +7,7 @@ import {
   input,
   output,
   ChangeDetectionStrategy,
+  ContentChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -21,7 +22,7 @@ export class TableColumnComponent {
   header = input.required<string>();
   sortable = input(false);
 
-  template = input<TemplateRef<{ $implicit: unknown }>>();
+  @ContentChild(TemplateRef) templateRef: TemplateRef<unknown> | null = null;
 }
 
 @Component({

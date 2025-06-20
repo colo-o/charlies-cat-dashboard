@@ -20,9 +20,11 @@
           *ngFor="let col of columnDefs"
           class="p-4 text-left border-b border-gray-200 whitespace-nowrap text-sm text-gray-800 last:border-b-0"
         >
-          <ng-container
-            *ngTemplateOutlet="col.template()!; context: { $implicit: row }"
-          ></ng-container>
+          <ng-container *ngIf="col.templateRef">
+            <ng-container
+              *ngTemplateOutlet="col.templateRef; context: { $implicit: row }"
+            ></ng-container>
+          </ng-container>
         </td>
       </tr>
     </tbody>
