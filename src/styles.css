@@ -6,14 +6,18 @@
   --color-brand-primary: #155883;
   --color-brand-primary-light: #1558831a;
   --color-brand-gray: #a0aec0;
-  --color-brand-soft-blue: #1E628E;
-  --color-brand-blue-gray: #E2E8F0;
+  --color-brand-soft-blue: #1e628e;
+  --color-brand-blue-gray: #e2e8f0;
   --color-dark-text: #2d3748;
   --color-secondary-text: #4fd1c5;
   --color-light-surface: #f9fafb;
   --color-solid-gray: #666666;
   --color-soft-gray: #9eadb4;
   --color-softer-gray: #f2f4f5;
+  --color-neutral: #f9fafb;
+  --color-blue-light: #f3f8ff;
+  --color-blue-light-cta: #d9ebfe;
+  --color-gray-light: #dddddd;
 
   --font-primary: 'Roboto', sans-serif;
   --font-brand: 'Nunito', sans-serif;
