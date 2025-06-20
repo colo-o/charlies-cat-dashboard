@@ -35,7 +35,9 @@
         </div>
       }
       <div class="mt-6">
-        <app-button type="submit" [disabled]="form.invalid || loading()">Sign in</app-button>
+        <app-button type="submit" [disabled]="form.invalid || loading()" variant="primary"
+          >Sign in</app-button
+        >
       </div>
       <p class="text-center text-sm text-brand-gray mt-6 font-primary">
         Having trouble signing in?

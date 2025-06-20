@@ -1,5 +1,6 @@
 import { Component, OnInit, inject, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { UserService } from '@core/services/user.service';
 import { User } from '@core/models/user.model';
 import { TableComponent, TableColumnComponent } from '@shared/components/table/table.component';
@@ -16,6 +17,7 @@ import {
 })
 export class UserListComponent implements OnInit {
   userService = inject(UserService);
+  private router = inject(Router);
 
   users = signal<User[]>([]);
 
@@ -41,5 +43,10 @@ export class UserListComponent implements OnInit {
   onPageChange(event: PageChangeEvent): void {
     this.currentPage.set(event.pageIndex);
     this.pageSize.set(event.pageSize);
+  }
+
+  viewUser(user: User): void {
+    this.userService.selectUser(user);
+    this.router.navigate(['/user', user.login.uuid]);
   }
 }

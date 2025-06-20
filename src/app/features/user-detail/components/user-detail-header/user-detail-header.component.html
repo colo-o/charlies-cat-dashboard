@@ -1,0 +1,16 @@
+<div class="flex items-center space-x-6 mb-3 px-5 py-5 bg-light-surface rounded-3xl">
+  <img
+    [src]="user().picture.large"
+    [alt]="user().name.first + ' ' + user().name.last"
+    class="w-24 h-24 rounded-full"
+  />
+  <div>
+    <h1 class="text-4xl font-medium text-dark-text font-primary">
+      {{ user().name.first }} {{ user().name.last }}
+    </h1>
+    <p class="text-lg text-brand-gray flex items-center font-primary">
+      Cat enthusiast & full-time feline cuddler.
+      <span class="ml-2 text-yellow-500">🐾</span>
+    </p>
+  </div>
+</div>

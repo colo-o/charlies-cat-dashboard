@@ -1,5 +1,5 @@
 <div>
-  <app-table [data]="displayedUsers()">
+  <app-table [data]="displayedUsers()" (rowClick)="viewUser($event)">
     <app-table-column key="picture.thumbnail" header="#">
       <ng-template let-user let-rowIndex="index">
         <p class="font-primary text-dark-text text-sm">

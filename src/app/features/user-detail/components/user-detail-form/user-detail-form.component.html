@@ -1,0 +1,52 @@
+<div class="p-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+    <!-- Email -->
+    <div>
+      <p class="block text-sm font-primary text-dark-text mb-1">Email</p>
+      <div class="w-full bg-displayable-gray rounded-lg px-4 py-3 text-brand-gray font-primary">
+        {{ user().email }}
+      </div>
+    </div>
+
+    <!-- Birth Date -->
+    <div>
+      <p class="block text-sm font-primary text-dark-text mb-1">Birth Date</p>
+      <div class="w-full bg-displayable-gray rounded-lg px-4 py-3 text-brand-gray font-primary">
+        {{ user().dob.date | date: 'longDate' }}
+      </div>
+    </div>
+
+    <!-- Address -->
+    <div>
+      <p class="block text-sm font-medium text-dark-text mb-1">Address</p>
+      <div class="w-full bg-displayable-gray rounded-lg px-4 py-3 text-brand-gray">
+        {{ user().location.street.number }}
+        {{ user().location.street.name }}, {{ user().location.city }}, {{ user().location.state }},
+        {{ user().location.country }}
+        {{ user().location.postcode }}
+      </div>
+    </div>
+
+    <!-- Phone Number -->
+    <div>
+      <p class="block text-sm font-medium text-dark-text mb-1">Phone Number</p>
+      <div
+        class="w-full bg-displayable-gray rounded-lg px-4 py-3 text-brand-gray flex justify-between items-center"
+      >
+        <span>{{ user().phone }}</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 text-gray-400"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

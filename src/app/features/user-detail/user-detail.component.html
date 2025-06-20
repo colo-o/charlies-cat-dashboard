@@ -1,0 +1,25 @@
+<div class="p-8 min-h-screen">
+  @if (loading()) {
+    <div class="text-center">Loading user details...</div>
+  } @else {
+    @if (user(); as user) {
+      <div class="max-w-4xl mx-auto">
+        <app-user-detail-header [user]="user" />
+        <app-user-detail-form [user]="user" />
+        <app-user-cats [user]="user" />
+
+        <div class="mt-8 flex justify-end">
+          <app-button variant="secondary"> + Add Cat Lover Friend </app-button>
+        </div>
+        <div class="mt-8">
+          <app-button variant="bgless" (click)="goBack()"> &larr; Back to list </app-button>
+        </div>
+      </div>
+    } @else {
+      <div class="text-center">
+        <p class="text-xl text-gray-600">User not found.</p>
+        <app-button (click)="goBack()"> Go Back </app-button>
+      </div>
+    }
+  }
+</div>
