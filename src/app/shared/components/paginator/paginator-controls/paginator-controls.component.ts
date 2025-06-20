@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 export class PaginatorControlsComponent {
   currentPage = input.required<number>();
   totalPages = input.required<number>();
-  pages = input.required<number[]>();
+  visiblePages = input.required<number[]>();
   isFirstPage = input.required<boolean>();
   isLastPage = input.required<boolean>();
 

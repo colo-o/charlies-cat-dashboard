@@ -27,7 +27,6 @@ export class UserService {
   }
 
   getUsers(count = 10): Observable<User[]> {
-    console.log('getUsers', count);
     this.loadingSignal.set(true);
     this.errorSignal.set(null);
 

@@ -33,7 +33,7 @@ export class UserListComponent implements OnInit {
   }
 
   loadUsers(): void {
-    this.userService.getUsers(50).subscribe((users) => {
+    this.userService.getUsers(100).subscribe((users) => {
       this.users.set(users);
     });
   }

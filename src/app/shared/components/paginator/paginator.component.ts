@@ -27,6 +27,28 @@ export class PaginatorComponent {
   isFirstPage = computed(() => this.currentPage() === 0);
   isLastPage = computed(() => this.currentPage() >= this.totalPages() - 1);
 
+  visiblePages = computed(() => {
+    const total = this.totalPages();
+    const current = this.currentPage();
+
+    if (total <= 7) {
+      return Array.from({ length: total }, (_, i) => i);
+    }
+
+    // When near the start
+    if (current < 3) {
+      return [0, 1, 2, 3, -1, total - 1];
+    }
+
+    // When near the end
+    if (current > total - 4) {
+      return [0, -1, total - 4, total - 3, total - 2, total - 1];
+    }
+
+    // When in the middle
+    return [0, -1, current - 1, current, current + 1, -1, total - 1];
+  });
+
   pages = computed(() => {
     const pageCount = this.totalPages();
     return Array.from({ length: pageCount }, (_, i) => i);
