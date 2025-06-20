@@ -2,11 +2,11 @@ import { Component, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { InputComponent } from '../../shared/components/input/input.component';
-import { ButtonComponent } from '../../shared/components/button/button.component';
-import { ToggleComponent } from '../../shared/components/toggle/toggle.component';
-import { AuthService } from '../../core/services/auth.service';
-import { LoggerService } from '../../core/services/logger.service';
+import { InputComponent } from '@shared/components/input/input.component';
+import { ButtonComponent } from '@shared/components/button/button.component';
+import { ToggleComponent } from '@shared/components/toggle/toggle.component';
+import { AuthService } from '@core/services/auth.service';
+import { LoggerService } from '@core/services/logger.service';
 
 @Component({
   selector: 'app-login',
