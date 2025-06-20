@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+
+@theme {
+  --color-mint-500: #f8a786;
+  --color-brand-primary: #155883;
+  --color-brand-primary-light: #1558831a;
+  --color-brand-gray: #a0aec0;
+  --color-dark-text: #2d3748;
+  --color-secondary-text: #4fd1c5;
+  --color-light-surface: #f9fafb;
+  --color-solid-gray: #666666;
+  --color-soft-gray: #9eadb4;
+  --color-softer-gray: #f2f4f5;
+
+  --font-primary: 'Roboto', sans-serif;
+  --font-brand: 'Nunito', sans-serif;
+}
