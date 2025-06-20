@@ -1,0 +1,12 @@
+<div class="w-full">
+  <label *ngIf="label()" class="block mb-1 ml-2 text-sm font-primary text-dark-text">{{ label() }}</label>
+  <input
+    [type]="type()"
+    [placeholder]="placeholder()"
+    class="text-sm w-full px-3 py-3 border text-dark-text border-brand-blue-gray rounded-2xl focus:outline-none focus:ring-brand-primary focus:border-brand-primary placeholder:text-brand-gray"
+    [formControl]="control"
+  />
+  <div *ngIf="control?.invalid && (control?.dirty || control?.touched)" class="mt-2 ml-3 text-xs text-red-600">
+    <div *ngIf="control.hasError('required')">This field is required.</div>
+  </div>
+</div>
