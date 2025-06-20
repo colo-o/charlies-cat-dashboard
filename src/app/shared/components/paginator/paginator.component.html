@@ -17,51 +17,16 @@
     >
   </div>
 
-  <div class="flex items-center space-x-4 mt-3 md:mt-0">
-    <div class="flex items-center space-x-1">
-      <button
-        (click)="goToPage(0)"
-        [disabled]="isFirstPage()"
-        class="px-3 py-[6px] rounded-full font-semibold font-primary border border-gray-light text-brand-primary disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100"
-      >
-        &laquo;
-      </button>
-      <button
-        (click)="previousPage()"
-        [disabled]="isFirstPage()"
-        class="px-3 py-[6px] rounded-full font-semibold font-primary border border-gray-light text-brand-primary disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100"
-      >
-        &lsaquo;
-      </button>
-      <div class="flex items-center space-x-1">
-        <li *ngFor="let page of pages()" class="list-none">
-          @if (page > currentPage() + 2 && page !== pages().length - 1) {
-            <span> ... </span>
-          } @else {
-            <button
-              (click)="goToPage(page)"
-              class="px-3 py-[6px] rounded-full hover:bg-gray-100 font-semibold font-primary border border-gray-light text-brand-primary"
-              [ngClass]="{ 'bg-brand-primary text-white': page === currentPage() }"
-            >
-              {{ page + 1 }}
-            </button>
-          }
-        </li>
-      </div>
-      <button
-        (click)="nextPage()"
-        [disabled]="isLastPage()"
-        class="px-3 py-[6px] rounded-full font-semibold font-primary border border-gray-light text-brand-primary disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100"
-      >
-        &rsaquo;
-      </button>
-      <button
-        (click)="goToPage(totalPages() - 1)"
-        [disabled]="isLastPage()"
-        class="px-3 py-[6px] rounded-full font-semibold font-primary border border-gray-light text-brand-primary disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100"
-      >
-        &raquo;
-      </button>
-    </div>
-  </div>
+  <app-paginator-controls
+    [currentPage]="currentPage()"
+    [totalPages]="totalPages()"
+    [pages]="pages()"
+    [isFirstPage]="isFirstPage()"
+    [isLastPage]="isLastPage()"
+    (pageSelected)="goToPage($event)"
+    (next)="nextPage()"
+    (previous)="previousPage()"
+    (first)="goToPage(0)"
+    (last)="goToPage(totalPages() - 1)"
+  ></app-paginator-controls>
 </div>

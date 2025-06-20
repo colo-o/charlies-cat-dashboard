@@ -1,6 +1,7 @@
 import { Component, computed, input, output, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { PaginatorControlsComponent } from './paginator-controls/paginator-controls.component';
 
 export interface PageChangeEvent {
   pageIndex: number;
@@ -10,7 +11,7 @@ export interface PageChangeEvent {
 @Component({
   selector: 'app-paginator',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, PaginatorControlsComponent],
   templateUrl: './paginator.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
