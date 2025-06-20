@@ -1,10 +1,12 @@
 <div class="flex items-center justify-center h-screen">
   <div class="w-full max-w-md p-8 space-y-8">
     <div class="flex items-center justify-center">
-      <img src="assets/images/logo.png" alt="Charlies Cat Lovers Club" class="w-[50%]">
+      <img src="assets/images/logo.png" alt="Charlies Cat Lovers Club" class="w-[50%]" />
     </div>
     <form [formGroup]="form" (ngSubmit)="login()">
-      <h1 class="text-5xl font-black font-brand text-center max-w-96 text-brand-primary">CHARLIE'S CAT LOVERS CLUB</h1>
+      <h1 class="text-5xl font-black font-brand text-center max-w-96 text-brand-primary">
+        CHARLIE'S CAT LOVERS CLUB
+      </h1>
       <div class="text-center mt-8">
         <h3 class="text-3xl font-bold text-brand-primary mb-2">Welcome back</h3>
         <p class="text-sm text-brand-gray font-bold">Enter your username and password to sign in</p>
@@ -27,11 +29,17 @@
       <div class="mt-4 flex justify-start">
         <app-toggle label="Show password" [(checked)]="showPassword"></app-toggle>
       </div>
+      @if (loginError()) {
+        <div class="mt-4 text-red-500 text-sm text-center">
+          Invalid username or password. Please try again.
+        </div>
+      }
       <div class="mt-6">
-        <app-button type="submit" [disabled]="form.invalid">Sign in</app-button>
+        <app-button type="submit" [disabled]="form.invalid || loading()">Sign in</app-button>
       </div>
       <p class="text-center text-sm text-brand-gray mt-6 font-primary">
-        Having trouble signing in? <a href="#" class="text-secondary-text font-bold">Contact support</a>
+        Having trouble signing in?
+        <a href="#" class="text-secondary-text font-bold">Contact support</a>
       </p>
     </form>
   </div>

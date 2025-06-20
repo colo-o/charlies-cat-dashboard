@@ -1,3 +1,9 @@
-<div class="flex items-center justify-center h-screen bg-gray-100">
-    <h1 class="text-4xl font-bold text-gray-800">Welcome to Charlie's Cat Dashboard!</h1>
+<div class="flex flex-col items-center justify-center h-screen bg-gray-100">
+  <div class="text-center">
+    <h1 class="text-4xl font-bold text-gray-800">Welcome, {{ currentUser()?.username }}!</h1>
+    <p class="text-lg text-gray-600 mt-2">You are now logged in to Charlie's Cat Dashboard.</p>
+    <div class="mt-8">
+      <app-button (click)="logout()">Logout</app-button>
+    </div>
+  </div>
 </div>

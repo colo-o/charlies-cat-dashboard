@@ -40,7 +40,13 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
             },
             "development": {
               "optimization": false,
@@ -54,7 +60,7 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "charlies-cat-dashboard:build:production"
+              "buildTarget": "charlies-cat-dashboard:build:production",
             },
             "development": {
               "buildTarget": "charlies-cat-dashboard:build:development"
