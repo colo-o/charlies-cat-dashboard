@@ -1,59 +1,64 @@
-# CharliesCatDashboard
+# Charlie's Cat Dashboard
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.2.
+A modern Angular application for managing users and their feline friends. This dashboard provides a clean interface to view, search, and manage user and cat information.
 
-## Development server
+## Getting Started
 
-To start a local development server, run:
+Follow these instructions to get the project up and running on your local machine.
 
-```bash
-ng serve
-```
+### Prerequisites
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Make sure you have [Node.js](https://nodejs.org/) and the [Angular CLI](https://angular.dev/tools/cli) installed.
 
-## Code scaffolding
+### Installation & Setup
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1.  **Clone the repository:**
+    ```bash
+    git clone <repository-url>
+    cd charlies-cat-dashboard
+    ```
 
-```bash
-ng generate component component-name
-```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+3.  **Run the development server:**
+    ```bash
+    ng serve
+    ```
+    Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-```bash
-ng generate --help
-```
+### Pre-Commit Hooks (Husky)
 
-## Building
+This project uses [Husky](https://typicode.github.io/husky/) to enforce code quality standards on staged files before they are committed. The pre-commit hook is configured to run `lint-staged`, which will automatically lint and format your code.
 
-To build the project run:
+The setup is handled automatically. When you run `npm install`, the `prepare` script in `package.json` executes `husky` and sets up the Git hooks. No further action is required.
 
-```bash
-ng build
-```
+## Architecture
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+This project is built using a modern, scalable, and maintainable architecture based on the latest Angular features.
 
-## Running unit tests
+-   **Standalone Components:** We use standalone components, directives, and pipes as the default. This approach eliminates the need for `NgModules`, reducing boilerplate and making dependency management more explicit and straightforward within each component.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+-   **Feature-First Organization:** The codebase is structured around business features (e.g., `user-list`, `user-detail`) rather than technical types. Each feature is a self-contained unit with its own components, services, and routes. This "feature-slicing" makes the application easier to navigate, scale, and maintain.
 
-```bash
-ng test
-```
+-   **Core & Shared Modules:**
+    -   `src/app/core`: Contains application-wide singleton services (like `AuthService` and `LoggerService`) that are instantiated only once.
+    -   `src/app/shared`: Holds reusable, presentation-focused components (like `ButtonComponent`, `TableComponent`, and `PaginatorComponent`) that are used across multiple features.
 
-## Running end-to-end tests
+This architecture promotes **SOLID** and **DRY** principles, leading to a codebase that is easier to test, debug, and extend over time.
 
-For end-to-end (e2e) testing, run:
+## Challenges
 
-```bash
-ng e2e
-```
+- The most "tricky" and challenging thing on this test definitly was trying to make content projection through `<ng-template>` and `<ng-container>`. Without a doubt this was the hardest thing to figure out and to understand.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Bonus Features
 
-## Additional Resources
+We've implemented several features to enhance the user experience and development workflow:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+-   **Lazy Loading:** Feature routes are lazy-loaded to ensure the initial application bundle is small and fast, improving initial load times.
+-   **Responsive Collapsible Sidebar:** The navigation sidebar is fully responsive and collapses on mobile devices to provide an optimal viewing experience on any screen size.
+-   **Advanced User Table:** The user list includes robust functionality for searching across all user fields and filtering by different criteria.
+-   **Global Error Handling:** An HTTP interceptor automatically catches API errors and displays user-friendly snack bar notifications, ensuring users are always informed of issues.
+-   **CI & Pre-Commit Hooks:** The project is configured with linting and formatting checks that run automatically before each commit, ensuring consistent code style and quality across the codebase.
