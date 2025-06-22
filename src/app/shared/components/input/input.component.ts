@@ -21,19 +21,23 @@ export class InputComponent implements ControlValueAccessor {
     }
   }
 
-  writeValue(_: unknown): void {
+  writeValue(): void {
     // Method required by ControlValueAccessor.
   }
 
-  registerOnChange(_: unknown): void {
+  registerOnChange(): void {
     // Method required by ControlValueAccessor.
   }
 
-  registerOnTouched(_: unknown): void {
+  registerOnTouched(): void {
     // Method required by ControlValueAccessor.
   }
 
   get control(): FormControl {
     return (this.ngControl?.control as FormControl) ?? new FormControl();
+  }
+
+  clear(): void {
+    this.control.setValue('');
   }
 }

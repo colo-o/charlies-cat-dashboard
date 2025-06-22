@@ -1,4 +1,24 @@
-<div>
+<div [formGroup]="filterForm" class="mb-4">
+    <div class="flex shrink-0 flex-wrap items-end gap-4">
+      <div class="flex-grow-1">
+        <app-input
+          formControlName="search"
+          [placeholder]="'Find people'"
+        ></app-input>
+      </div>
+      <div>
+        <app-date-picker formControlName="dateFrom" [label]="'Date From'"></app-date-picker>
+      </div>
+      <div>
+        <app-date-picker formControlName="dateTo" [label]="'Date To'"></app-date-picker>
+      </div>
+      <div class="flex-grow-1">
+        <app-button (click)="applyFilters()">Search</app-button>
+      </div>
+    </div>
+  </div>
+
+  <div>
   <app-table [data]="displayedUsers()" (rowClick)="viewUser($event)">
     <app-table-column key="picture.thumbnail" header="#">
       <ng-template let-user let-rowIndex="index">
@@ -51,7 +71,7 @@
   </app-table>
   <div class="mt-8">
     <app-paginator
-      [totalItems]="users().length"
+      [totalItems]="filteredUsers().length"
       [pageSize]="pageSize()"
       [currentPage]="currentPage()"
       (pageChange)="onPageChange($event)"

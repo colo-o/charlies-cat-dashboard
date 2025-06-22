@@ -1,11 +1,24 @@
 <div class="w-full">
-  <label *ngIf="label()" class="block mb-1 ml-2 text-sm font-primary text-dark-text">{{ label() }}</label>
-  <input
-    [type]="type()"
-    [placeholder]="placeholder()"
-    class="text-sm w-full px-3 py-3 border text-dark-text border-brand-blue-gray rounded-2xl focus:outline-none focus:ring-brand-primary focus:border-brand-primary placeholder:text-brand-gray"
-    [formControl]="control"
-  />
+  <label *ngIf="label()" class="block mb-1 ml-2 text-sm font-primary text-dark-text" for="input">{{ label() }}</label>
+  <div class="relative">
+    <input
+      [type]="type()"
+      [placeholder]="placeholder()"
+      class="text-sm w-full px-3 py-3 border text-dark-text border-brand-blue-gray rounded-2xl focus:outline-none focus:ring-brand-primary focus:border-brand-primary placeholder:text-brand-gray"
+      [formControl]="control"
+      id="input"
+    />
+    <button
+        *ngIf="control.value"
+        (click)="clear()"
+        type="button"
+        class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 hover:text-gray-700"
+      >
+          <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+          </svg>
+      </button>
+  </div>
   <div *ngIf="control?.invalid && (control?.dirty || control?.touched)" class="mt-2 ml-3 text-xs text-red-600">
     <div *ngIf="control.hasError('required')">This field is required.</div>
   </div>
