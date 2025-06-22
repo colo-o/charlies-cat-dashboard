@@ -68,3 +68,5 @@ node_modules/
 *.sln
 *.sw?
 # OS specific
+# Local Netlify folder
+.netlify
