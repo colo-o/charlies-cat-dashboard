@@ -1,0 +1,87 @@
+<aside
+  class="fixed lg:relative top-0 left-0 h-full z-40 border border-blue-light bg-light-surface transition-all duration-300 ease-in-out overflow-y-auto lg:rounded-2xl max-w-80"
+  [class.translate-x-0]="isSidebarOpen"
+  [class.-translate-x-full]="!isSidebarOpen"
+  [class.lg:translate-x-0]="true"
+>
+  <div
+    class="w-full transition-all duration-300"
+    [class.p-6]="isSidebarOpen"
+    [class.p-4]="!isSidebarOpen"
+    [class.px-2]="!isSidebarOpen"
+  >
+    <!-- User Profile -->
+    <div
+      class="flex flex-col justify-center items-center mb-8"
+      [class.justify-center]="!isSidebarOpen"
+    >
+      <div class="w-16 h-16 bg-gray-300 rounded-full" [class.mr-4]="isSidebarOpen">
+        <img
+          src="https://randomuser.me/api/portraits/thumb/women/15.jpg"
+          alt="User avatar"
+          class="w-full h-full rounded-full"
+        />
+      </div>
+      <div *ngIf="isSidebarOpen" class="mt-6">
+        <h3 class="text-md text-center mb-2">DAVID HURTADO</h3>
+        <p class="text-sm text-center text-brand-primary font-primary">
+          Cat enthusiast & full-time feline cuddler. 🐾
+        </p>
+      </div>
+    </div>
+
+    <div *ngIf="isSidebarOpen">
+      <div class="mb-8 divide-y divide-blue-light">
+        <div class="my-4">
+          <div class="flex justify-between text-sm text-brand-primary mb-2 font-primary">
+            <span>Contacts</span>
+            <span class="text-brand-primary font-primary">fifty</span>
+          </div>
+          <div class="flex justify-between text-sm text-gray-700 mb-2 font-primary">
+            🐱 50 fellow cat lovers Always ready to share purrfect stories.
+          </div>
+          <div class="flex justify-between text-sm text-brand-primary mb-2 font-primary mt-4">
+            <span>Profile views</span>
+            <span class="text-brand-primary font-primary">3</span>
+          </div>
+        </div>
+        <div class="my-4">
+          <p class="text-sm text-brand-primary font-primary">Access to exclusive catnip tools</p>
+          <a class="text-sm text-dark-text font-primary mt-12 underline"
+            >🎁 Try Moewmium for free</a
+          >
+        </div>
+        <div>
+          <p class="text-sm text-brand-primary font-primary">My elements</p>
+        </div>
+      </div>
+
+      <nav>
+        <h4 class="text-sm text-dark-text font-primary mt-8 mb-2">Latest</h4>
+        <ul class="list-none space-y-2 text-sm text-dark-text font-primary">
+          <li>🐾 New tips on cozy cat beds</li>
+          <li>🐾 How to train your cat to high-five</li>
+          <li>🐾 Best toys for lazy kitties</li>
+          <li>🐾 Grooming guide for long-haired cats</li>
+          <li>🐾 The science of cat purring</li>
+        </ul>
+      </nav>
+      <nav>
+        <h4 class="text-sm text-brand-primary font-primary mt-12 mb-2">Groups</h4>
+        <ul class="list-none space-y-2 text-sm text-brand-primary font-primary">
+          <li>🐱 Tabby Lovers United</li>
+          <li>🐱 Senior Cats Appreciation Club</li>
+          <li>🐱 Adopt Don't Shop Community</li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Collapsed state content -->
+    <div class="flex flex-col items-center gap-6 mt-8" *ngIf="!isSidebarOpen">
+      <div class="w-6 h-6 bg-gray-400 rounded" title="Profile"></div>
+      <div class="w-6 h-6 bg-gray-400 rounded" title="Elements"></div>
+      <div class="w-6 h-6 bg-gray-400 rounded" title="Latest"></div>
+      <div class="w-6 h-6 bg-gray-400 rounded" title="Groups"></div>
+    </div>
+  </div>
+</aside>

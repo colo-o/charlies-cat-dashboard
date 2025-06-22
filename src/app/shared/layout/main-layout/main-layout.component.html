@@ -1,0 +1,17 @@
+<div class="flex h-screen relative px-4 py-4">
+  <div
+    class="fixed top-0 left-0 w-full h-full bg-black/50 z-30"
+    *ngIf="isMobile && isSidebarOpen"
+    (click)="toggleSidebar()"
+    (keydown.enter)="toggleSidebar()"
+    role="button"
+    tabindex="0"
+  ></div>
+  <app-sidebar [isSidebarOpen]="isSidebarOpen" [isMobile]="isMobile"></app-sidebar>
+  <div class="flex flex-col overflow-x-auto transition-margin duration-300 ease w-full">
+    <app-navbar (toggleSidebar)="toggleSidebar()"></app-navbar>
+    <main class="md:p-6 w-full">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

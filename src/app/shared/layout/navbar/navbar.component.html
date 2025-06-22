@@ -1,0 +1,30 @@
+<nav class="h-16 bg-light-surface flex items-center px-6 flex-shrink-0 rounded-2xl lg:ml-8">
+  <div class="flex items-center">
+    <button
+      class="lg:hidden bg-transparent border-none cursor-pointer p-0 mr-4"
+      (click)="onToggleSidebar()"
+    >
+      <span class="block w-6 h-0.5 bg-gray-700 my-1"></span>
+      <span class="block w-6 h-0.5 bg-gray-700 my-1"></span>
+      <span class="block w-6 h-0.5 bg-gray-700 my-1"></span>
+    </button>
+  </div>
+  <div class="hidden lg:flex gap-8 mx-auto">
+    @for (item of navItems; track item.route) {
+      <a
+        class="flex items-center justify-center flex-col gap-2 text-solid-gray no-underline text-sm font-medium transition-colors hover:text-gray-800"
+      >
+        <mat-icon [fontIcon]="item.icon" class="mat-icon-rtl-mirror"></mat-icon>
+        {{ item.label }}
+      </a>
+    }
+  </div>
+  <div class="flex items-center ml-auto lg:ml-0">
+    <a
+      href="#"
+      class="text-solid-gray no-underline text-sm font-medium transition-colors hover:text-gray-800"
+      (click)="logout()"
+      >Logout</a
+    >
+  </div>
+</nav>
